@@ -9,9 +9,16 @@ This project contains the Java source files of a sample application, that shows 
 
 ## Details
 
-![Screenshot](screen_large.png)<br>
+The project contains two folders: 
+* `ls_client`, containing the `Test.java` source class, and 
+* `ls_proxy`, containing the `Test.java` and `LoadTest.java` source classes.
+Each source is an independent test with its own main() method. 
+Please, refer to the instructions included in each source file in order to configure and run the tests.
 
-Each source is an independent test with its own main() method. Please, refer to the instructions included in each source file in order to configure and run the tests.
+
+The client opens a connection, performs a table subscription and unsubscription and closes the connection after some time.
+
+![Screenshot](screen_large.png)<br>
 
 ### Dig the Code
 

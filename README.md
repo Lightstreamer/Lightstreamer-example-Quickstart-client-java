@@ -9,24 +9,28 @@ This project contains the Java source files of a sample application, that shows 
 
 ## Details
 
-The project contains two folders: 
-* `/ls_client`, containing the `Test.java` source class, and 
-* `/ls_proxy`, containing the `Test.java` and `LoadTest.java` source classes.
-
-Each source is an independent test with its own main() method. 
-Please, refer to the instructions included in each source file in order to configure and run the tests.
-
-
-The client opens a connection, performs a table subscription and unsubscription and closes the connection after some time.
-
-![Screenshot](screen_large.png)
+The [Lightstreamer Java SE Client API](http://www.lightstreamer.com/docs/client_javase_api/index.html) is made up of two layers: 
+* a basic layer, with package name `com.lightstreamer.ls_client`, which exposes a simple interface to communicate with Lightstreamer Server, by opening and closing a connection, performing subscriptions and unsubscriptions and receiving data;
+* an advanced layer, with package name `com.lightstreamer.ls_proxy`, which builds upon the basic layer and exposes a "data oriented" interface, in which the access to Lightstreamer Server is hidden and optimized.
 
 ### Dig the Code
 
-This example is comprised of the following folders:
-* `/src` Contains the sources to build the java examples.
-  
-* `/lib` Drop here the `ls-client.jar` from the Lighstreamer SDK for Java SE Clients, to be used for the build process and execution.
+The project contains two folders: 
+* `/ls_client`, containing source code to test the `com.lightstreamer.ls_client` package;
+* `/ls_proxy`, containing source code to test the `com.lightstreamer.ls_proxy` package, and to demonstrate advanced Server access support, through LSProxy facade;
+ 
+The `/ls_client` contains the following source class.
+* `Test.java` A simple client, which opens a connection, performs a table subscription and unsubscription and closes the connection after some time.
+
+The `/ls_proxy` contains the following source classes.
+* `Test.java`: shows subscriptions and unsubscriptions of interleaving sets of items with interleaving sets of fields, and demonstrates also the recovery features offered, if Lightstreamer Server is shut down and restarted during the test.
+* `LoadTest.java`: shows impacts of connections/disconnections on pushing activity and the impact of transactions on subscription/unsubscription management, and shows also the impact of refused subscription requests on Server, and Client Library behaviour.
+
+Each source class is an independent test with its own main() method. 
+They basically connect to the server and perform a subscription, printing on the console the incoming Item Updates.
+
+![Screenshot](screen_large.png)
+
 
 ## Build, Install and Run
 
@@ -39,7 +43,9 @@ If you want to build and install a version of this demo, pointing to your local 
 javac -classpath lib/ls-client.jar -d bin src/ls_client/Test.java
 ```
 
-By the current configuration, the host name and the port number on which the Lightstreamer server is listening have to be specified as arguments on the command line.<br>
+*Please, refer to the instructions included in each source file for more details on how to configure and run the tests.*
+
+The host name and the port number on which the Lightstreamer server is listening have to be specified as arguments on the command line.
 A couple of shell/batch files that can be used to run the ls_client example:
 * batch command:
 
@@ -77,7 +83,7 @@ exec $JAVA_HOME/bin/java -classpath $DEMO_HOME/bin;$DEMO_HOME/lib/ls-client.jar 
 
 <!-- END RELATED_ENTRIES -->
 
-### Related Projects ##
+### Related Projects
 
 * [Lightstreamer - Basic Stock-List Demo - Java SE (Swing) Client](https://github.com/Weswit/Lightstreamer-example-StockList-client-java)
 

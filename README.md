@@ -42,11 +42,14 @@ To build and install a version of this demo, pointing to your local Lightstreame
 ```sh
 javac -classpath lib/ls-client.jar -d bin src/ls_client/Test.java
 ```
+* Run the test with a command like:<BR/>
+`> java -classpath lib/ls-client.jar ls_client.Test localhost 8080`<BR/>
+specifying, as arguments on the command line, the host name and the port number, on which the Lightstreamer server is listening.
 
 *Please, refer to the instructions included in each source file for more details on how to configure and run the tests.*
 
-The host name and the port number on which the Lightstreamer server is listening have to be specified as arguments on the command line.
-A couple of shell/batch files that can be used to run the ls_client example:
+
+A couple of shell/batch files that can be useful to run the ls_client example:
 * batch command:
 
 ```cmd
@@ -71,6 +74,12 @@ DEMO_HOME=/Lightstreamer/Dev
 
 exec $JAVA_HOME/bin/java -classpath $DEMO_HOME/bin;$DEMO_HOME/lib/ls-client.jar ls_client.Test %CONF% $CONF
 ```
+
+* If you want to connect to the [Online Demo Lightstreamer Server](http://push.lightstreamer.com/) instead of your local server, you have to change the Adapter Set to connect to. Edit the .java class and replace:<BR/>
+`this.adapter = "FULLPORTFOLIODEMO";`<BR/>
+with<BR/>
+`this.adapter = "DEMO";`
+
 
 ## See Also 
 

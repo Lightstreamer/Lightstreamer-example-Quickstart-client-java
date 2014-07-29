@@ -32,11 +32,11 @@ They basically connect to the server and perform a subscription, printing on the
 ![Screenshot](screen_large.png)
 
 
-## Build, Install and Run
+## Build
 
-If you want to build and install a version of this demo, pointing to your local Lightstreamer Server instance, follow the steps below.
+To build and install a version of this demo, pointing to your local Lightstreamer Server instance, follow the steps below.
 
-* The *Quickstart Example*, needs both the *PORTFOLIO_ADAPTER*, from the *Portfolio Demo*, and the *QUOTE_ADAPTER*, from the *Stock-List Demo* (see [Lightstreamer - Stock-List Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-StockList-adapter-java)). As a prerequisite, the full version of the [Lightstreamer - Portfolio Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Portfolio-adapter-java) has to be deployed on your local Lightstreamer Server instance. Please follow the instruction in [Install the Portfolio Demo](https://github.com/Weswit/Lightstreamer-example-Portfolio-adapter-java#install-the-portfolio-demo) to install it.
+* The *Quickstart Example*, needs both the *PORTFOLIO_ADAPTER* ( see the [Lightstreamer - Portfolio Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Portfolio-adapter-java)), and the *QUOTE_ADAPTER* (see the [Lightstreamer - Stock-List Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-StockList-adapter-java)). Therefore, as a prerequisite, the full version of the [Lightstreamer - Portfolio Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Portfolio-adapter-java) has to be deployed on your local Lightstreamer Server instance. Please follow the instruction in [Install the Portfolio Demo](https://github.com/Weswit/Lightstreamer-example-Portfolio-adapter-java#install-the-portfolio-demo) to install it.
 * Get the `ls-client.jar` file from `DOCS-SDKs/sdk_client_java_se/lib` folder of the [latest Lightstreamer distribution](http://www.lightstreamer.com/download), and copy it into the `lib` directory of the project.
 * Build the `Test.java` class:
 ```sh

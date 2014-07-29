@@ -29,11 +29,11 @@ import java.util.Random;
  * and the impact of transactions on subscription/unsubscription
  * management. Also, shows the impact of refused subscription requests
  * on Server and Client Library behaviour.
- * It requires that Lightstreamer Server is running with the DEMO Adapter Set
+ * It requires that Lightstreamer Server is running with the FULLPORTFOLIODEMO Adapter Set
  * installed. Note, however, that the StockList demo Data Adapter does not
  * generate data suitable for COMMAND mode; so, error notifications will
  * appear on the Server for all COMMAND subscriptions performed.
- * 
+ *
  * The test is invoked in this way:
  *    java ls_proxy.LoadTest <host> <port>
  * where <host> stands for the host name of Lightstreamer Server, while <port>
@@ -45,9 +45,9 @@ public class LoadTest {
     private final LSProxy lsProxy;
     private final ConnectionInfo connInfo;
     private static final Random random = new Random();
-    
+
     /**
-     * Items supplied by StockList Demo Data Adapter 
+     * Items supplied by StockList Demo Data Adapter
      */
     private static String[] items = {
         "item1", "item2", "item3",
@@ -58,7 +58,7 @@ public class LoadTest {
     };
 
     /**
-     * Fields supplied by StockList Demo Data Adapter 
+     * Fields supplied by StockList Demo Data Adapter
      */
     private static String[] fields = {
         "last_price", "time", "pct_change",
@@ -74,7 +74,7 @@ public class LoadTest {
      * and disconnections may give rise to problematic conditions.
      * This is useful to test robustness features; in normal use, the
      * subscription requests should not be at random.
-     * 
+     *
      * @param args Should specify the host name of the Server and the port
      * number.
      */
@@ -116,7 +116,7 @@ public class LoadTest {
         connInfo = new ConnectionInfo() {
             {
                 this.pushServerUrl = "http://" + pushServerHost + ":" + pushServerPort;
-                this.adapter = "DEMO";
+                this.adapter = "FULLPORTFOLIODEMO";
             }
         };
     }

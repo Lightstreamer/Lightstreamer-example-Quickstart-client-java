@@ -37,9 +37,9 @@ import com.lightstreamer.ls_client.UpdateInfo;
  *
  * Opens a connection to Lightstreamer Server and subscribes a table,
  * defined with either a SimpleTableInfo or an ExtendedTableInfo.
- * It requires that Lightstreamer Server is running with the DEMO
+ * It requires that Lightstreamer Server is running with the FULLPORTFOLIODEMO
  * Adapter Set installed.
- * 
+ *
  * The test can be invoked in five different ways:
  *    java ls_client.Test HOST PORT
  *       demonstrates use of SimpleTableInfo with a HandyTableListener
@@ -57,7 +57,7 @@ import com.lightstreamer.ls_client.UpdateInfo;
  * HOST stands for the host name of Lightstreamer Server, while <port>
  * stands for the port number configured for the Server (the value in the
  * &lt;port&gt; subelement of the &lt;http_server&gt; block in the configuration file).
- * 
+ *
  * In order for the COMMAND based versions to produce updates, a PortfolioDemo
  * should be opened on the same Server and order entry operations should
  * be performed manually.
@@ -67,7 +67,7 @@ public class Test {
     /**
      * Opens a connection, performs a table subscription and unsubscription
      * and closes the connection after some time.
-     * 
+     *
 	 * @param args Should specify the host name of the Server, the port number
      * and optionally the "extended", "multiple" and "command" flags.
 	 * @throws Exception Thrown in case of any error.
@@ -91,7 +91,7 @@ public class Test {
             new ConnectionInfo() {
                 {
                     this.pushServerUrl = "http://" + pushServerHost + ":" + pushServerPort;
-                    this.adapter = "DEMO";
+                    this.adapter = "FULLPORTFOLIODEMO";
                     // this.maxBandwidth = new Double(1.0);
                 }
             },

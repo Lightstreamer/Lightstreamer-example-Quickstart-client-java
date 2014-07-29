@@ -26,9 +26,9 @@ import com.lightstreamer.ls_client.ConnectionInfo;
  * with interleaving sets of fields.
  * The test also demonstrates the recovery features offered, if Lightstreamer
  * Server is shut down and restarted during the test.
- * It requires that Lightstreamer Server is running with the DEMO
+ * It requires that Lightstreamer Server is running with the FULLPORTFOLIODEMO
  * Adapter Set installed.
- * 
+ *
  * The test is invoked in this way:
  *    java ls_proxy.Test <host> <port>
  * where <host> stands for the host name of Lightstreamer Server, while <port>
@@ -38,7 +38,7 @@ import com.lightstreamer.ls_client.ConnectionInfo;
 public class Test {
 
     /**
-     * Items supplied by StockList Demo Data Adapter 
+     * Items supplied by StockList Demo Data Adapter
      */
     private static final String[] items = {
         "item1", "item2", "item3",
@@ -49,7 +49,7 @@ public class Test {
     };
 
     /**
-     * Fields supplied by StockList Demo Data Adapter 
+     * Fields supplied by StockList Demo Data Adapter
      */
     private static final String[] schema = {
         "last_price", "time", "pct_change",
@@ -63,7 +63,7 @@ public class Test {
 	 * The reception of particular values can trigger a further subscription or
 	 * unsubscription request.
      * Then closes the connection after some time.
-     * 
+     *
      * @param args Should specify the host name of the Server and the port
      * number.
 	 * @throws Exception Thrown in case of any error.
@@ -88,7 +88,7 @@ public class Test {
         ConnectionInfo connInfo = new ConnectionInfo() {
             {
                 this.pushServerUrl = "http://" + pushServerHost + ":" + pushServerPort;
-                this.adapter = "DEMO";
+                this.adapter = "FULLPORTFOLIODEMO";
             }
         };
         lsProxy.startPushConnection(connInfo);

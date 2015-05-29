@@ -79,12 +79,12 @@ public class Stocklist {
     }
   
     @Override
-    public void onCommandSecondLevelItemLostUpdates(int lostUpdates, String item) {
+    public void onCommandSecondLevelItemLostUpdates(int lostUpdates, String key) {
       //not on this subscription
     }
   
     @Override
-    public void onCommandSecondLevelSubscriptionError(int arg0, String arg1, String arg2) {
+    public void onCommandSecondLevelSubscriptionError(int code, String message, String key) {
       //not on this subscription
     }
   

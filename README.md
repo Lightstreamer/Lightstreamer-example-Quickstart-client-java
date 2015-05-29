@@ -1,33 +1,30 @@
 # Lightstreamer - Quickstart Example - Java SE Client 
-<!-- START DESCRIPTION lightstreamer-example-quickstart-client-java -->
 
 The *Quickstart Example* provides the source code to build very simple and basic client applications, used to test the capability of the Client APIs to connect and receive data from Lightstreamer Server. The examples can be used to familiarize with the Client APIs and as a reference on how to use them, and can be used as a starting point for client application implementations.
 
-This project contains the Java source files of a sample application, that shows how the [Lightstreamer Java SE Client API](http://www.lightstreamer.com/docs/client_javase_api/index.html) can be used to connect to Lightstreamer Server.
+This project contains the Java source files of some sample applications, that shows how the [Lightstreamer Java SE Client API](http://www.lightstreamer.com/docs/client_javase_uni_api/index.html) can be used to connect to Lightstreamer Server.
 
-<!-- END DESCRIPTION lightstreamer-example-quickstart-client-java -->
 
 ## Details
 
-The [Lightstreamer Java SE Client API](http://www.lightstreamer.com/docs/client_javase_api/index.html) is made up of two layers: 
-* a basic layer, with package name `com.lightstreamer.ls_client`, which exposes a simple interface to communicate with Lightstreamer Server, by opening and closing a connection, performing subscriptions and unsubscriptions and receiving data;
-* an advanced layer, with package name `com.lightstreamer.ls_proxy`, which builds upon the basic layer and exposes a "data oriented" interface, in which the access to Lightstreamer Server is hidden and optimized.
+The [Lightstreamer Java SE Client API](http://www.lightstreamer.com/docs/client_javase_uni_api/index.html) is used to connect to Lightstreamer, subscribe to available
+items and to send messages to the server. Automatic reconnections and resubscriptions are offered out-of-the-box by the library itself. All the available methods are 
+non-blocking so they execute fast, network and other time-consuming operations are handled on dedicated threads; methods are synchronized among themselves though, so 
+calling many methods on the same instance from different threads at the same time might still slow down things a bit. 
 
 ### Dig the Code
 
-The project contains two folders: 
-* `/ls_client`, containing source code to test the `com.lightstreamer.ls_client` package;
-* `/ls_proxy`, containing source code to test the `com.lightstreamer.ls_proxy` package, and to demonstrate advanced Server access support, through LSProxy facade;
- 
-The `/ls_client` contains the following source class.
-* `Test.java` A simple client, which opens a connection, performs a table subscription and unsubscription and closes the connection after some time.
-
-The `/ls_proxy` contains the following source classes.
-* `Test.java`: shows subscriptions and unsubscriptions of interleaving sets of items with interleaving sets of fields, and demonstrates also the recovery features offered, if Lightstreamer Server is shut down and restarted during the test.
-* `LoadTest.java`: shows impacts of connections/disconnections on pushing activity and the impact of transactions on subscription/unsubscription management, and shows also the impact of refused subscription requests on Server, and Client Library behaviour.
-
-Each source class is an independent test with its own main() method. 
+Each source class (excluding the SystemOutClientListener) is an independent application with its own main() method. 
 They basically connect to the server and perform a subscription, printing on the console the incoming Item Updates.
+
+under src/quickstart you'll find: 
+* `SystemOutClientListener.java` is a simple implementation of the ClientListener interface that is used by the other examples. An instance of this class, listening to
+a LightstreamerClient instance (through the addListener method) will print on the standard output informations about the status of the connection.
+* `Stocklist.java` is a simple application that subscribes to 15 stocks (MERGE) and prints all the updates on the standard output
+* `Portfolio.java` is very similar to the `Stocklist.java` example, but, in this case a 2-level subscription, representing a portfolio (COMMAND) is shown. The second level is 
+obtained using the same stock data (MERGE) used by the previous example.
+* `Chat.java` is a simple application that subscribes to the chat item (DISTINCT) on a Lightstreamer server and then accepts command from the standard input to send messages, 
+connect/disconnect subscribe/unsubscribe and others making it possible to easily experiment with the APIs
 
 ![Screenshot](screen_large.png)
 
@@ -36,15 +33,17 @@ They basically connect to the server and perform a subscription, printing on the
 
 To build and install a version of this demo, pointing to your local Lightstreamer Server instance, follow the steps below.
 
-* The *Quickstart Example*, needs both the *PORTFOLIO_ADAPTER* ( see the [Lightstreamer - Portfolio Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Portfolio-adapter-java)), and the *QUOTE_ADAPTER* (see the [Lightstreamer - Stock-List Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-StockList-adapter-java)). Therefore, as a prerequisite, the full version of the [Lightstreamer - Portfolio Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Portfolio-adapter-java) has to be deployed on your local Lightstreamer Server instance. Please follow the instruction in [Install the Portfolio Demo](https://github.com/Weswit/Lightstreamer-example-Portfolio-adapter-java#install-the-portfolio-demo) to install it.
-* Get the `ls-client.jar` file from `DOCS-SDKs/sdk_client_java_se/lib` folder of the [latest Lightstreamer distribution](http://www.lightstreamer.com/download), and copy it into the `lib` directory of the project.
-* Build the `Test.java` class:
+* The *Quickstart Example*, needs, the *PORTFOLIO_ADAPTER* ( see the [Lightstreamer - Portfolio Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Portfolio-adapter-java)), the *QUOTE_ADAPTER* (see the [Lightstreamer - Stock-List Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-StockList-adapter-java)) and the *CHAT_ROOM* (see the [Lightstreamer - Stock-List Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-java)). Follow the instructions on those projects to get them up and running (in the portfolio case, you'll need 
+the *full version*).
+* Get the `ls-javase-client.jar` file from `DOCS-SDKs/sdk_client_java_se_beta/lib` folder of the [latest Lightstreamer distribution](http://www.lightstreamer.com/download), and copy it into the `lib` directory of the project together with all its required libraries (see the sdk for more information).
+* Build the `Stocklist.java` class:
 ```sh
-javac -classpath lib/ls-client.jar -d bin src/ls_client/Test.java
+javac -classpath lib/ls-javase-client.jar -d bin src/quickstart/Stocklist.java
 ```
-* Run the test with a command like:<BR/>
-`> java -classpath lib/ls-client.jar ls_client.Test localhost 8080`<BR/>
-specifying, as arguments on the command line, the host name and the port number, on which the Lightstreamer server is listening.
+* Run the test with a command like:
+`> java -classpath lib/* quickstart.Stocklist http://localhost:8080`
+
+specifying, as arguments on the command line, the server address of the Lightstreamer server.
 
 *Please, refer to the instructions included in each source file for more details on how to configure and run the tests.*
 
@@ -56,10 +55,10 @@ A couple of shell/batch files that can be useful to run the ls_client example:
 @echo off
 
 set JAVA_HOME=C:\Program Files\Java\jdk1.7.0
-set CONF=localhost 8080
+set CONF= http://localhost:8080
 set DEMO_HOME=C:\Lightstreamer\Dev\
 
-call "%JAVA_HOME%\bin\java.exe" -classpath %DEMO_HOME%bin\;%DEMO_HOME%lib\ls-client.jar ls_client.Test %CONF%
+call "%JAVA_HOME%\bin\java.exe" -classpath %DEMO_HOME%bin\;%DEMO_HOME%lib\* quickstart.Stocklist %CONF%
 pause
 ```
 
@@ -72,25 +71,17 @@ JAVA_HOME=/usr/jdk1.7.0
 CONF="localhost 8080"
 DEMO_HOME=/Lightstreamer/Dev
 
-exec $JAVA_HOME/bin/java -classpath $DEMO_HOME/bin;$DEMO_HOME/lib/ls-client.jar ls_client.Test %CONF% $CONF
+exec $JAVA_HOME/bin/java -classpath $DEMO_HOME/bin;$DEMO_HOME/lib/* quickstart.Stocklist %CONF% $CONF
 ```
-
-* If you want to connect to the [Online Demo Lightstreamer Server](http://push.lightstreamer.com/) instead of your local server, you have to change the Adapter Set to connect to. Edit the .java class and replace:<BR/>
-`this.adapter = "FULLPORTFOLIODEMO";`<BR/>
-with<BR/>
-`this.adapter = "DEMO";`
-
 
 ## See Also 
 
 ### Lightstreamer Adapters Needed by This Client 
-<!-- START RELATED_ENTRIES -->
 
 * [Lightstreamer - Stock-List Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Stocklist-adapter-java)
 * [Lightstreamer - Portfolio Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Portfolio-adapter-java)
+* [Lightstreamer - Chat Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-java)
 * [Lightstreamer - Reusable Metadata Adapters - Java Adapter](https://github.com/Weswit/Lightstreamer-example-ReusableMetadata-adapter-java)
-
-<!-- END RELATED_ENTRIES -->
 
 ### Related Projects
 
@@ -98,6 +89,6 @@ with<BR/>
 
 ## Lightstreamer Compatibility Notes 
 
-- Compatible with Lightstreamer Java SE Client API v. 2.5.2 or newer.
+- Compatible with Lightstreamer Java SE Client API v. 3.0 or newer.
 - For Lightstreamer Allegro (+ Java SE Client API), Presto, Vivace.
-
+- For a version of this example compatible with Lightstreamer Java Client API version 2.5.2, please refer to [this tag](https://github.com/Weswit/Lightstreamer-example-Quickstart-client-java/tree/latest-for-client-2.x).

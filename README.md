@@ -31,11 +31,36 @@ connect/disconnect subscribe/unsubscribe and others making it possible to easily
 
 ## Build
 
-To build and install a version of this demo, pointing to your local Lightstreamer Server instance, follow the steps below.
+To build and install a version of this demo you have two options: either use [Maven](https://maven.apache.org/) to take care of dependencies and building (recommended) or gather the necessary jars yourself and build it manually. 
 
-* The *Quickstart Example*, needs, the *PORTFOLIO_ADAPTER* ( see the [Lightstreamer - Portfolio Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Portfolio-adapter-java)), the *QUOTE_ADAPTER* (see the [Lightstreamer - Stock-List Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-StockList-adapter-java)) and the *CHAT_ROOM* (see the [Lightstreamer - Stock-List Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-java)). Follow the instructions on those projects to get them up and running (in the portfolio case, you'll need 
-the *full version*).
-* Get the `ls-javase-client.jar` file from `DOCS-SDKs/sdk_client_java_se_beta/lib` folder of the [latest Lightstreamer distribution](http://www.lightstreamer.com/download), and copy it into the `lib` directory of the project together with all its required libraries (see the sdk for more information).
+In both cases, if you plan to point the examples to your own server, you'll need to install the following adapters (depending on which quickstart example
+you want to run you might not need them all):
+* The *CHAT_ROOM* (see the [Lightstreamer - Stock-List Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-java)). 
+* The *QUOTE_ADAPTER* (see the [Lightstreamer - Stock-List Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-StockList-adapter-java)) 
+* The *PORTFOLIO_ADAPTER* ( see the [Lightstreamer - Portfolio Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Portfolio-adapter-java)), 
+
+Follow the instructions on those projects to get them up and running (in the portfolio case, you'll need the *full version*).
+
+###Maven
+
+You can easily build and run this application using Maven through the pom.xml file located in the root folder of this project.
+
+Assuming Maven is installed and available in your path you can build the demo by running
+```sh
+mvn package
+```
+
+You can also run the application with the following command
+```sh
+mvn exec:java -Dexec.args="chat http://push.lightstreamer.com"
+```
+the arguments in the above command select the example to run (and must be either "chat", "stocklist" or "portfolio") and the target Lightstreamer server
+
+###Manual
+
+Follow these steps:
+
+* Get the `ls-java-client-*.jar` from the Lighstreamer SDK for Java SE Clients, to be used for the build process and execution together with all its required libraries (dependencies are only required to run the application, the only compile requirement is the Lightstreamer Java client itself).
 * Build the `Stocklist.java` class:
 ```sh
 javac -classpath lib/ls-javase-client.jar -d bin src/quickstart/Stocklist.java
@@ -48,7 +73,7 @@ specifying, as arguments on the command line, the server address of the Lightstr
 *Please, refer to the instructions included in each source file for more details on how to configure and run the tests.*
 
 
-A couple of shell/batch files that can be useful to run the ls_client example:
+A couple of shell/batch files that can be useful to run the example:
 * batch command:
 
 ```cmd

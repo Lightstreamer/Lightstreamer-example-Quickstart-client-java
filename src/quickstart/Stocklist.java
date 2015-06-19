@@ -54,7 +54,7 @@ public class Stocklist {
     } 
   }
 
-  private void start(String serverAddress) {
+  void start(String serverAddress) {
     LightstreamerClient client = new LightstreamerClient(serverAddress, "DEMO");
     
     ClientListener clientListener = new SystemOutClientListener();

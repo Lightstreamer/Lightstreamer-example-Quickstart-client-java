@@ -38,7 +38,7 @@ public class Portfolio {
    } 
  }
 
-  private void start(String serverAddress) {
+  void start(String serverAddress) {
     // the portfolio demo available @ http://demos.lightstreamer.com/PortfolioDemo/
     // connects to the DEMO adapter set on push.lightstreamer.com rather than 
     // to a FULLPORTFOLIODEMO one (obviously that DEMO adapter set contains the 

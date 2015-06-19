@@ -57,7 +57,7 @@ public class Chat {
     new Chat().start(serverAddress);
   }
   
-  private void start(String serverAddress) {
+  void start(String serverAddress) {
     
     // the chat demo available @ http://demos.lightstreamer.com/ChatDemo/
     // connects to the DEMO adapter set on push.lightstreamer.com rather than 

@@ -31,7 +31,7 @@ connect/disconnect subscribe/unsubscribe and others making it possible to easily
 
 ## Build
 
-To build and install a version of this demo you have two options: either use [Maven](https://maven.apache.org/) to take care of dependencies and building (recommended) or gather the necessary jars yourself and build it manually. 
+To build and install a version of this demo you have two options: either use [Maven](https://maven.apache.org/) (or other build tools) to take care of dependencies and building (recommended) or gather the necessary jars yourself and build it manually. 
 
 In both cases, if you plan to point the examples to your own server, you'll need to install the following adapters (depending on which quickstart example
 you want to run you might not need them all):
@@ -43,7 +43,7 @@ Follow the instructions on those projects to get them up and running (in the por
 
 ###Maven
 
-You can easily build and run this application using Maven through the pom.xml file located in the root folder of this project.
+You can easily build and run this application using Maven through the pom.xml file located in the root folder of this project.As an alternative, you can use an alternative build tool (e.g. Gradle, Ivy, etc.) by converting the provided pom.xml file.
 
 Assuming Maven is installed and available in your path you can build the demo by running
 ```sh
@@ -60,7 +60,7 @@ the arguments in the above command select the example to run (and must be either
 
 Follow these steps:
 
-* Get the `ls-java-client-*.jar` from the Lighstreamer SDK for Java SE Clients, to be used for the build process and execution together with all its required libraries (dependencies are only required to run the application, the only compile requirement is the Lightstreamer Java client itself).
+* Get the `ls-java-client-*.jar` from the Lighstreamer SDK for Java SE Clients, to be used for the build process and execution together with all its required libraries. You can discover the required libraries and their dependencies by looking at the provided pom.xml file. Note that dependencies are only required to run the application; the only compile requirement is the Lightstreamer Java client itself.
 * Build the `Stocklist.java` class:
 ```sh
 javac -classpath lib/ls-javase-client.jar -d bin src/quickstart/Stocklist.java

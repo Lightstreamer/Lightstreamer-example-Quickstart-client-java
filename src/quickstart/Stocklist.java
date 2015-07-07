@@ -103,7 +103,7 @@ public class Stocklist {
       
       System.out.println("====UPDATE====> " + update.getItemName());
       
-      Iterator<Entry<String,String>> changedValues = update.getChangedFieldsIterator();
+      Iterator<Entry<String,String>> changedValues = update.getChangedFields().entrySet().iterator();
       while(changedValues.hasNext()) {
         Entry<String,String> field = changedValues.next();
         System.out.println("Field " + field.getKey() + " changed: " + field.getValue());

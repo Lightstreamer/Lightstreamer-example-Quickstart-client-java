@@ -98,6 +98,6 @@ with<BR/>
 
 ## Lightstreamer Compatibility Notes 
 
-- Compatible with Lightstreamer Java SE Client API v. 2.5.2 or newer.
+- Compatible with Lightstreamer Java SE Client API v. 2.5.2 or newer 2.x version.
 - For Lightstreamer Allegro (+ Java SE Client API), Presto, Vivace.
 

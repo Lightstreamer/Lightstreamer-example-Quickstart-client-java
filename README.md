@@ -31,7 +31,7 @@ connect/disconnect subscribe/unsubscribe and others making it possible to easily
 
 ## Build
 
-To build and install a version of this demo you have two options: either use [Maven](https://maven.apache.org/) (or other build tools) to take care of dependencies and building (recommended) or gather the necessary jars yourself and build it manually. 
+To build and install a version of this demo you have two options: either use [Maven](https://maven.apache.org/) (or other build tools) to take care of dependencies and building (recommended) or gather the necessary jars yourself and build it manually. For the sake of simplicity only the maven case is detailed here.
 
 In both cases, if you plan to point the examples to your own server, you'll need to install the following adapters (depending on which quickstart example
 you want to run you might not need them all):
@@ -55,49 +55,6 @@ You can also run the application with the following command
 mvn exec:java -Dexec.args="chat http://push.lightstreamer.com"
 ```
 the arguments in the above command select the example to run (and must be either "chat", "stocklist" or "portfolio") and the target Lightstreamer server
-
-###Manual
-
-Follow these steps:
-
-* Get the `ls-java-client-*.jar` from the Lighstreamer SDK for Java SE Clients, to be used for the build process and execution together with all its required libraries. You can discover the required libraries and their dependencies by looking at the provided pom.xml file. Note that dependencies are only required to run the application; the only compile requirement is the Lightstreamer Java client itself.
-* Build the `Stocklist.java` class:
-```sh
-javac -classpath lib/ls-javase-client.jar -d bin src/quickstart/Stocklist.java
-```
-* Run the test with a command like:
-`> java -classpath lib/* quickstart.Stocklist http://localhost:8080`
-
-specifying, as arguments on the command line, the server address of the Lightstreamer server.
-
-*Please, refer to the instructions included in each source file for more details on how to configure and run the tests.*
-
-
-A couple of shell/batch files that can be useful to run the example:
-* batch command:
-
-```cmd
-@echo off
-
-set JAVA_HOME=C:\Program Files\Java\jdk1.7.0
-set CONF= http://localhost:8080
-set DEMO_HOME=C:\Lightstreamer\Dev\
-
-call "%JAVA_HOME%\bin\java.exe" -classpath %DEMO_HOME%bin\;%DEMO_HOME%lib\* quickstart.Stocklist %CONF%
-pause
-```
-
-* shell command:
-
-```sh
-#! /bin/sh
-
-JAVA_HOME=/usr/jdk1.7.0
-CONF="localhost 8080"
-DEMO_HOME=/Lightstreamer/Dev
-
-exec $JAVA_HOME/bin/java -classpath $DEMO_HOME/bin;$DEMO_HOME/lib/* quickstart.Stocklist %CONF% $CONF
-```
 
 ## See Also 
 

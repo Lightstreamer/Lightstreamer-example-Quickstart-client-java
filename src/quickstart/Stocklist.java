@@ -141,6 +141,10 @@ public class Stocklist {
       System.out.println("Now unsubscribed from chat item, no more messages will be received");
     }
     
+    public void onRealMaxFrequency(String frequency) {
+        System.out.println("Frequency is " + frequency);
+    }
+    
   }
 
 }

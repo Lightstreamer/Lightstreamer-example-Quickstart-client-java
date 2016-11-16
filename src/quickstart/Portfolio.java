@@ -149,6 +149,10 @@ public class Portfolio {
       System.out.println("Now unsubscribed from portfolio item");
     }
     
+    public void onRealMaxFrequency(String frequency) {
+        System.out.println("Frequency is " + frequency);
+    }
+    
   }
   
 }

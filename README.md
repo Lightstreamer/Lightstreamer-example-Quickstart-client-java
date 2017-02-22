@@ -2,7 +2,7 @@
 
 The *Quickstart Example* provides the source code to build very simple and basic client applications, used to test the capability of the Client APIs to connect and receive data from Lightstreamer Server. The examples can be used to familiarize with the Client APIs and as a reference on how to use them, and can be used as a starting point for client application implementations.
 
-This project contains the Java source files of some sample applications, that shows how the [Lightstreamer Java SE Client API](http://docs.lightstreamer.com/api/ls-javase-client/latest/) can be used to connect to Lightstreamer Server.
+This project contains the Java source files of some sample applications, that shows how the [Lightstreamer Java SE Client API](http://docs.lightstreamer.com/api/ls-javase-client/latest_3/) can be used to connect to Lightstreamer Server.
 
 
 ## Details
@@ -71,6 +71,6 @@ the arguments in the above command select the example to run (and must be either
 
 ## Lightstreamer Compatibility Notes 
 
-- Compatible with Lightstreamer Java SE Client API v. 3.0 or newer.
+- Compatible with Lightstreamer Java SE Client API v. 3.0.
 - For Lightstreamer Allegro (+ Java SE Client API), Presto, Vivace.
 - For a version of this example compatible with Lightstreamer Java Client API version 2.5.2, please refer to [this tag](https://github.com/Lightstreamer/Lightstreamer-example-Quickstart-client-java/tree/latest-for-client-2.x).

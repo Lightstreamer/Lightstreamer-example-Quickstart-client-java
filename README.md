@@ -71,6 +71,7 @@ the arguments in the above command select the example to run (and must be either
 
 ## Lightstreamer Compatibility Notes 
 
-- Compatible with Lightstreamer Java SE Client API v. 3.0 or newer.
+- Compatible with Lightstreamer Java SE Client API v. 4.0 or newer.
 - For Lightstreamer Allegro (+ Java SE Client API), Presto, Vivace.
+- For a version of this example compatible with Lightstreamer Java Client API version 3.x, please refer to [this tag](https://github.com/Lightstreamer/Lightstreamer-example-Quickstart-client-java/tree/latest-for-client-3.x).
 - For a version of this example compatible with Lightstreamer Java Client API version 2.5.2, please refer to [this tag](https://github.com/Lightstreamer/Lightstreamer-example-Quickstart-client-java/tree/latest-for-client-2.x).

@@ -222,6 +222,7 @@ public class Chat {
       System.out.println("Now unsubscribed from chat item, no more messages will be received");
     }
 
+    @Override
     public void onRealMaxFrequency(String frequency) {
         System.out.println("Frequency is " + frequency);
     }

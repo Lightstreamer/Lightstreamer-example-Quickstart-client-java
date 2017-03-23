@@ -41,7 +41,7 @@ you want to run you might not need them all):
 
 Follow the instructions on those projects to get them up and running (in the portfolio case, you'll need the *full version*).
 
-###Maven
+### Maven
 
 You can easily build and run this application using Maven through the pom.xml file located in the root folder of this project.As an alternative, you can use an alternative build tool (e.g. Gradle, Ivy, etc.) by converting the provided pom.xml file.
 

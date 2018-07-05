@@ -2,12 +2,12 @@
 
 The *Quickstart Example* provides the source code to build very simple and basic client applications, used to test the capability of the Client APIs to connect and receive data from Lightstreamer Server. The examples can be used to familiarize with the Client APIs and as a reference on how to use them, and can be used as a starting point for client application implementations.
 
-This project contains the Java source files of some sample applications, that shows how the [Lightstreamer Java SE Client API](http://docs.lightstreamer.com/api/ls-javase-client/latest/) can be used to connect to Lightstreamer Server.
+This project contains the Java source files of some sample applications, that shows how the [Lightstreamer Java SE Client API](https://lightstreamer.com/api/ls-javase-client/latest/) can be used to connect to Lightstreamer Server.
 
 
 ## Details
 
-The [Lightstreamer Java SE Client API](http://www.lightstreamer.com/docs/client_javase_uni_api/index.html) is used to connect to Lightstreamer, subscribe to available
+The [Lightstreamer Java SE Client API](https://lightstreamer.com/api/ls-javase-client/latest/) is used to connect to Lightstreamer, subscribe to available
 items and to send messages to the server. Automatic reconnections and resubscriptions are offered out-of-the-box by the library itself. All the available methods are 
 non-blocking so they execute fast, network and other time-consuming operations are handled on dedicated threads; methods are synchronized among themselves though, so 
 calling many methods on the same instance from different threads at the same time might still slow down things a bit. 
@@ -35,7 +35,7 @@ To build and install a version of this demo you have two options: either use [Ma
 
 In both cases, if you plan to point the examples to your own server, you'll need to install the following adapters (depending on which quickstart example
 you want to run you might not need them all):
-* The *CHAT_ROOM* (see the [Lightstreamer - Stock-List Demo - Java Adapter](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-java)). 
+* The *CHAT_ROOM* (see the [Lightstreamer - Basic Chat Demo - Java Adapter](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-java)). 
 * The *QUOTE_ADAPTER* (see the [Lightstreamer - Stock-List Demo - Java Adapter](https://github.com/Lightstreamer/Lightstreamer-example-StockList-adapter-java)) 
 * The *PORTFOLIO_ADAPTER* ( see the [Lightstreamer - Portfolio Demo - Java Adapter](https://github.com/Lightstreamer/Lightstreamer-example-Portfolio-adapter-java)), 
 

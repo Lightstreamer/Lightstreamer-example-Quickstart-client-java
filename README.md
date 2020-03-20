@@ -19,7 +19,7 @@ They basically connect to the server and perform a subscription, printing on the
 
 under src/quickstart you'll find: 
 * `SystemOutClientListener.java` is a simple implementation of the ClientListener interface that is used by the other examples. An instance of this class, listening to
-a LightstreamerClient instance (through the addListener method) will print on the standard output informations about the status of the connection.
+a LightstreamerClient instance (through the addListener method) will print on the standard output information about the status of the connection.
 * `Stocklist.java` is a simple application that subscribes to 15 stocks (MERGE) and prints all the updates on the standard output
 * `Portfolio.java` is very similar to the `Stocklist.java` example, but, in this case a 2-level subscription, representing a portfolio (COMMAND) is shown. The second level is 
 obtained using the same stock data (MERGE) used by the previous example.

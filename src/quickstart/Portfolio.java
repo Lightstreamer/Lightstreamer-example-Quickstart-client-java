@@ -125,12 +125,12 @@ public class Portfolio {
     }
   
     @Override
-    public void onListenEnd(Subscription subscription) {
+    public void onListenEnd() {
       System.out.println("Stop listeneing to subscription events");
     }
   
     @Override
-    public void onListenStart(Subscription subscription) {
+    public void onListenStart() {
       System.out.println("Start listeneing to subscription events");
     }
   

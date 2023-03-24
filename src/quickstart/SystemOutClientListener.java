@@ -21,12 +21,12 @@ import com.lightstreamer.client.LightstreamerClient;
 public class SystemOutClientListener implements ClientListener {
 
     @Override
-    public void onListenEnd(LightstreamerClient client) {
+    public void onListenEnd() {
       System.out.println("Stops listening to client events"); 
     }
 
     @Override
-    public void onListenStart(LightstreamerClient client) {
+    public void onListenStart() {
       System.out.println("Start listening to client events");
       
     }

@@ -71,7 +71,8 @@ the arguments in the above command select the example to run (and must be either
 
 ## Lightstreamer Compatibility Notes 
 
-- Compatible with Lightstreamer Java SE Client API v. 4.0 or newer.
-- Ensure that Java SE Client API is supported by Lightstreamer Server license configuration.
+- Compatible with Lightstreamer Java SE Client API v. 5.0 or newer.
+- For Lightstreamer Server 7.3.2 or newer. Ensure that Java SE Client API is supported by Lightstreamer Server license configuration.
+- For a version of this example compatible with Lightstreamer Java Client API version 4.x, please refer to [this tag](https://github.com/Lightstreamer/Lightstreamer-example-Quickstart-client-java/releases/tag/latest-for-client-4.x).
 - For a version of this example compatible with Lightstreamer Java Client API version 3.x, please refer to [this tag](https://github.com/Lightstreamer/Lightstreamer-example-Quickstart-client-java/tree/latest-for-client-3.x).
 - For a version of this example compatible with Lightstreamer Java Client API version 2.5.2, please refer to [this tag](https://github.com/Lightstreamer/Lightstreamer-example-Quickstart-client-java/tree/latest-for-client-2.x).

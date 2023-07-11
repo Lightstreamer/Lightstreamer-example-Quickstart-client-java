@@ -257,7 +257,7 @@ public class Chat {
     }
   
     @Override
-    public void onProcessed(String originalMessage) {
+    public void onProcessed(String originalMessage, String response) {
       System.out.println("message \""+originalMessage+"\" processed correctly");
     }
   }

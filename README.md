@@ -15,9 +15,10 @@ calling many methods on the same instance from different threads at the same tim
 ### Dig the Code
 
 Each source class (excluding the SystemOutClientListener) is an independent application with its own main() method. 
-They basically connect to the server and perform a subscription, printing on the console the incoming Item Updates.
+They generally connect to the server and perform a subscription, printing on the console the incoming Item Updates.
+Only PortfolioOrderEntry behaves differently, as it just submits a message and closes.
 
-under src/quickstart you'll find: 
+To resume, under src/quickstart you'll find: 
 * `SystemOutClientListener.java` is a simple implementation of the ClientListener interface that is used by the other examples. An instance of this class, listening to
 a LightstreamerClient instance (through the addListener method) will print on the standard output information about the status of the connection.
 * `Stocklist.java` is a simple application that subscribes to 15 stocks (MERGE) and prints all the updates on the standard output
@@ -25,6 +26,9 @@ a LightstreamerClient instance (through the addListener method) will print on th
 obtained using the same stock data (MERGE) used by the previous example.
 * `Chat.java` is a simple application that subscribes to the chat item (DISTINCT) on a Lightstreamer server and then accepts command from the standard input to send messages, 
 connect/disconnect subscribe/unsubscribe and others making it possible to easily experiment with the APIs
+* `PortfolioOrderEntry.java` sends a message representing an order based on the program arguments, waits for the Server response, and prints it; then closes.
+The effect of the order submission can be seen by running Portfolio.java concurrently.
+* `Main.java` utility class for launch through Maven.
 
 ![Screenshot](screen_large.png)
 
@@ -54,7 +58,11 @@ You can also run the application with the following command
 ```sh
 mvn exec:java -Dexec.args="chat http://push.lightstreamer.com"
 ```
-the arguments in the above command select the example to run (and must be either "chat", "stocklist" or "portfolio") and the target Lightstreamer server
+the arguments in the above command select the example to run (and must be either "chat", "stocklist", "portfolio", or "orderentry") and the target Lightstreamer server.
+Only for "orderentry", the command should also specify an item name supported by the Portfolio Data Adapter and a quantity (possibly negative), like in
+```sh
+mvn exec:java -Dexec.args="orderentry http://push.lightstreamer.com item1 100"
+```
 
 ## See Also 
 

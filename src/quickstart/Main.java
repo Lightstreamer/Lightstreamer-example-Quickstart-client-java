@@ -15,6 +15,7 @@
  */
 package quickstart;
 
+import java.util.Arrays;
 import java.util.concurrent.CountDownLatch;
 
 public class Main {
@@ -32,6 +33,9 @@ public class Main {
       case "portfolio":
         new Portfolio().start(args[1]);
         slumber();
+        break;
+      case "orderentry":
+        PortfolioOrderEntry.main(Arrays.copyOfRange(args, 1, args.length));
         break;
     }
   }

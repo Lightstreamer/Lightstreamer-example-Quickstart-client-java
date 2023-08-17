@@ -87,7 +87,6 @@ public class PortfolioOrderEntry {
     } catch (InterruptedException | ExecutionException e) {
       e.printStackTrace();
     }
-    System.exit(0);
   }
   
   

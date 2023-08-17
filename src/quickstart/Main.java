@@ -38,6 +38,7 @@ public class Main {
         PortfolioOrderEntry.main(Arrays.copyOfRange(args, 1, args.length));
         break;
     }
+    System.exit(0);
   }
   
   private static void slumber() {
